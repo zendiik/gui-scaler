@@ -46,11 +46,10 @@ public class GuiScaler {
         NeoForge.EVENT_BUS.register(new ScreenEventHandler());
     }
 
-    @Mod.EventBusSubscriber(modid = Constants.MOD_ID)
     public static class ScreenEventHandler {
 
         @SubscribeEvent
-        public static void onScreenInit(ScreenEvent.Init.Post event) {
+        public void onScreenInit(ScreenEvent.Init.Post event) {
             CommonClass.onScreenInit();
         }
     }

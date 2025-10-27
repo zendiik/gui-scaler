@@ -1,11 +1,8 @@
 package eu.netleak.guiscaler.config;
 
-import eu.netleak.guiscaler.Constants;
 import eu.netleak.guiscaler.core.ScaleMode;
 import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class GuiScalerConfig {
 
     public static final ModConfigSpec CLIENT_CONFIG;

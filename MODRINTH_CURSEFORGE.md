@@ -38,14 +38,16 @@ The mod monitors screen initialization events and automatically calculates the o
 #### Fabric (owo-lib)
 Config file: `config/guiscaler.json5`
 
-```toml
-enableAutoScale = true
-mode = "AUTO"  # or "CUSTOM"
-
-[customRules]
-2560 = 3
-1920 = 2
-1280 = 1
+```json5
+{
+  "enableAutoScale": true,
+  "mode": "AUTO",  // or "CUSTOM"
+  "customRules": {
+    "2560": 3,
+    "1920": 2,
+    "1280": 1
+  }
+}
 ```
 
 #### Forge/NeoForge

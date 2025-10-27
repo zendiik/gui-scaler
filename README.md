@@ -33,17 +33,19 @@ Define your own scaling rules in the config file.
 
 ## Configuration
 
-Config file location: `config/guiscaler-client.toml` (or `.json` for Fabric)
+Config file location: `config/guiscaler-client.toml` (or `.json5` for Fabric)
 
 ### Fabric (owo-lib)
-```toml
-enableAutoScale = true
-mode = "AUTO"  # or "CUSTOM"
-
-[customRules]
-2560 = 3
-1920 = 2
-1280 = 1
+```json5
+{
+  "enableAutoScale": true,
+  "mode": "AUTO",  // or "CUSTOM"
+  "customRules": {
+    "2560": 3,
+    "1920": 2,
+    "1280": 1
+  }
+}
 ```
 
 ### Forge/NeoForge

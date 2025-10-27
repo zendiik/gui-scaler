@@ -78,7 +78,7 @@ GUI Scaler is designed to be lightweight and compatible with most mods. It uses:
 No known incompatibilities with other mods.
 
 ### Support & Issues
-Found a bug or have a suggestion? Please report it on our [issue tracker](https://gitea.zendovo.eu/minecraft/gui-scaler-mod/issues).
+Found a bug or have a suggestion? Please report it on our [issue tracker](https://github.com/zendiik/gui-scaler/issues).
 
 ### License
 This mod is licensed under GNU LGPL 3.0.

@@ -81,5 +81,5 @@ GNU LGPL 3.0
 
 ## Links
 
-- Repository: https://gitea.zendovo.eu/minecraft/gui-scaler-mod
-- Issues: https://gitea.zendovo.eu/minecraft/gui-scaler-mod/issues
+- Repository: https://github.com/zendiik/gui-scaler
+- Issues: https://github.com/zendiik/gui-scaler/issues

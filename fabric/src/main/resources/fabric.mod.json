@@ -8,7 +8,8 @@
         "${mod_author}"
     ],
     "contact": {
-        "sources": "https://gitea.zendovo.eu/minecraft/gui-scaler-mod"
+        "sources": "https://github.com/zendiik/gui-scaler",
+        "issues": "https://github.com/zendiik/gui-scaler/issues"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",

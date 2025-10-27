@@ -33,4 +33,32 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    /**
+     * Gets the current GUI scale setting.
+     *
+     * @return The current GUI scale value.
+     */
+    int getCurrentGuiScale();
+
+    /**
+     * Sets the GUI scale to the specified value.
+     *
+     * @param scale The GUI scale value to set.
+     */
+    void setGuiScale(int scale);
+
+    /**
+     * Gets the current window width.
+     *
+     * @return The window width in pixels.
+     */
+    int getWindowWidth();
+
+    /**
+     * Gets the current window height.
+     *
+     * @return The window height in pixels.
+     */
+    int getWindowHeight();
 }

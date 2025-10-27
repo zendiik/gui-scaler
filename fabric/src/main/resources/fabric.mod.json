@@ -1,0 +1,35 @@
+{
+    "schemaVersion": 1,
+    "id": "guiscaler",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "sources": "https://gitea.zendovo.eu/minecraft/gui-scaler-mod"
+    },
+    "license": "${license}",
+    "icon": "${mod_id}.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+          "eu.netleak.guiscaler.GuiScaler"
+        ]
+    },
+    "mixins": [
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=21"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}
+  

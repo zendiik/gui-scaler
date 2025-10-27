@@ -1,0 +1,56 @@
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'
+}
+
+repositories {
+    maven { url 'https://maven.wispforest.io/releases/' }
+    maven { url "https://cursemaven.com" }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    modImplementation "io.wispforest:owo-lib:${project.owo_version}"
+    include "io.wispforest:owo-sentinel:${project.owo_version}"
+    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
+
+    modImplementation "curse.maven:modmenu-${project.modmenu_id}:${project.modmenu_version}"
+    modImplementation "curse.maven:jei-${project.jei_id}:${project.jei_fabric_version}"
+
+    testImplementation "net.fabricmc:fabric-loader-junit:${project.fabric_loader_version}"
+}
+
+loom {
+    def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('runs/client')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('runs/server')
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

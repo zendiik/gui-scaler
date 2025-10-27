@@ -40,13 +40,13 @@ Config file: `config/guiscaler.json5`
 
 ```json5
 {
-  "enableAutoScale": true,
-  "mode": "AUTO",  // or "CUSTOM"
-  "customRules": {
-    "2560": 3,
-    "1920": 2,
-    "1280": 1
-  }
+	"enableAutoScale": true,
+	"mode": "AUTO",
+	"customRules": {
+		"2560": 3,
+		"1920": 2,
+		"1280": 1
+	}
 }
 ```
 
@@ -54,9 +54,15 @@ Config file: `config/guiscaler.json5`
 Config file: `config/guiscaler-client.toml`
 
 ```toml
+#GUI Scaler Configuration
 [general]
-enableAutoScale = true
-mode = "AUTO"  # or "CUSTOM"
+	#Enable automatic GUI scaling
+	enableAutoScale = true
+	#Scaling mode: AUTO (intelligent) or CUSTOM (user-defined rules)
+	#Allowed Values: AUTO, CUSTOM
+	mode = "AUTO"
+	#Custom scaling rules in format 'width:scale' (e.g., '2560:3' means scale 3 for width >= 2560)
+	customRules = ["2560:3", "1920:2", "1280:1"]
 ```
 
 ### Installation

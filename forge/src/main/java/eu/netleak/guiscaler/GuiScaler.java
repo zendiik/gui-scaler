@@ -34,11 +34,19 @@ public class GuiScaler {
 
             @Override
             public Map<Integer, Integer> getCustomRules() {
-                // Default custom rules (Forge doesn't support complex config maps easily)
                 Map<Integer, Integer> rules = new HashMap<>();
-                rules.put(2560, 3);
-                rules.put(1920, 2);
-                rules.put(1280, 1);
+                for (String rule : GuiScalerConfig.CUSTOM_RULES.get()) {
+                    try {
+                        String[] parts = rule.split(":");
+                        if (parts.length == 2) {
+                            int width = Integer.parseInt(parts[0]);
+                            int scale = Integer.parseInt(parts[1]);
+                            rules.put(width, scale);
+                        }
+                    } catch (NumberFormatException e) {
+                        Constants.LOG.error("Invalid custom rule format: {}", rule);
+                    }
+                }
                 return rules;
             }
         });

@@ -3,14 +3,14 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.49-beta' apply false
     id "org.sonarqube" version "6.0.1.5171"
 }
-//
-//sonar {
-//    properties {
-//        property "sonar.projectKey", "zendiik_boilerplate_6253e018-5e9b-4fe6-8c01-0113f89d41ca"
-//        property "sonar.projectName", "boilerplate"
-//        property "sonar.qualitygate.wait", true
-//        property "sonar.sources", "src/main/java"
-//        property "sonar.java.binaries", "fabric/build/classes/java/main,forge/build/classes/java/main,neoforge/build/classes/java/main"
-//        property "sonar.java.libraries", "fabric/build/libs,forge/build/libs,neoforge/build/libs"
-//    }
-//}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "zendiik_gui-scaler_7318837b-602c-45bc-bd17-9c7ce0cda6b0"
+        property "sonar.projectName", "gui-scaler"
+        property "sonar.qualitygate.wait", true
+        property "sonar.sources", "src/main/java"
+        property "sonar.java.binaries", "fabric/build/classes/java/main,forge/build/classes/java/main,neoforge/build/classes/java/main"
+        property "sonar.java.libraries", "fabric/build/libs,forge/build/libs,neoforge/build/libs"
+    }
+}

@@ -4,6 +4,16 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.2] - 2025-11-02
+
+### Added
+- Fabric: missing dependencies
+
+## [1.0.1] - 2025-10-28
+
+### Fixed
+- Client only
+
 ## [1.0.0] - 2025-10-27
 
 ### Added

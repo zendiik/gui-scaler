@@ -4,7 +4,7 @@ license = "${license}" # Review your options at https://choosealicense.com/.
 issueTrackerURL="https://github.com/zendiik/gui-scaler/issues"
 [[mods]] #mandatory
 modId = "${mod_id}" #mandatory
-version = "${version}" #mandatory
+version = "${display_version}" #mandatory
 displayName = "${mod_name}" #mandatory
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional (see https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/)
 displayURL="https://github.com/zendiik/gui-scaler" #optional (displayed in the mod UI)

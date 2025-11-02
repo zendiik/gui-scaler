@@ -86,6 +86,7 @@ jar {
 processResources {
     var expandProps = [
             'version'                      : version,
+            'display_version'              : rootProject.version,
             'group'                        : project.group, //Else we target the task's group.
             'minecraft_version'            : minecraft_version,
             'minecraft_version_range'      : minecraft_version_range,

@@ -1,5 +1,10 @@
 # GUI Scaler
 
+[![CurseForge Downloads](https://cf.way2muchnoise.eu/full_1373686_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/gui-scaler)
+[![CurseForge Versions](https://cf.way2muchnoise.eu/versions/1373686.svg)](https://www.curseforge.com/minecraft/mc-mods/gui-scaler)
+[![Modrinth Downloads](https://img.shields.io/modrinth/dt/auto-gui-scaler?logo=modrinth&label=downloads)](https://modrinth.com/mod/auto-gui-scaler)
+[![Modrinth Version](https://img.shields.io/modrinth/v/auto-gui-scaler?logo=modrinth&label=version)](https://modrinth.com/mod/auto-gui-scaler)
+
 Automatically scales Minecraft GUI based on window resolution.
 
 ## Features

@@ -107,10 +107,119 @@ jobs:
         with:
           name: build-artifacts
 
+      - name: Extract CHANGELOG pro aktuální verzi
+        id: changelog
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          CHANGELOG=$(sed -n "/## \[$VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d')
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # CurseForge uploads
+      - name: Publish to CurseForge (Fabric)
+        uses: Kir-Antipov/mc-publish@v3
+        with:
+          curseforge-id: 1373686
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: fabric/build/libs/!(*-@(dev|sources|javadoc)).jar
+          name: GUI Scaler ${{ github.ref_name }} [Fabric]
+          version: ${{ github.ref_name }}
+          version-type: release
+
+          loaders: fabric
+          game-versions: 1.21.1
+
+          changelog: ${{ steps.changelog.outputs.content }}
+
+      - name: Publish to CurseForge (Forge)
+        uses: Kir-Antipov/mc-publish@v3
+        with:
+          curseforge-id: 1373686
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: forge/build/libs/!(*-@(dev|sources|javadoc)).jar
+          name: GUI Scaler ${{ github.ref_name }} [Forge]
+          version: ${{ github.ref_name }}
+          version-type: release
+
+          loaders: forge
+          game-versions: 1.21.1
+
+          changelog: ${{ steps.changelog.outputs.content }}
+
+      - name: Publish to CurseForge (NeoForge)
+        uses: Kir-Antipov/mc-publish@v3
+        with:
+          curseforge-id: 1373686
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: neoforge/build/libs/!(*-@(dev|sources|javadoc)).jar
+          name: GUI Scaler ${{ github.ref_name }} [NeoForge]
+          version: ${{ github.ref_name }}
+          version-type: release
+
+          loaders: neoforge
+          game-versions: 1.21.1
+
+          changelog: ${{ steps.changelog.outputs.content }}
+
+      # Modrinth uploads
+      - name: Publish to Modrinth (Fabric)
+        uses: Kir-Antipov/mc-publish@v3
+        with:
+          modrinth-id: auto-gui-scaler
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          files: fabric/build/libs/!(*-@(dev|sources|javadoc)).jar
+          name: GUI Scaler ${{ github.ref_name }} [Fabric]
+          version: ${{ github.ref_name }}
+          version-type: release
+
+          loaders: fabric
+          game-versions: 1.21.1
+
+          changelog: ${{ steps.changelog.outputs.content }}
+
+      - name: Publish to Modrinth (Forge)
+        uses: Kir-Antipov/mc-publish@v3
+        with:
+          modrinth-id: auto-gui-scaler
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          files: forge/build/libs/!(*-@(dev|sources|javadoc)).jar
+          name: GUI Scaler ${{ github.ref_name }} [Forge]
+          version: ${{ github.ref_name }}
+          version-type: release
+
+          loaders: forge
+          game-versions: 1.21.1
+
+          changelog: ${{ steps.changelog.outputs.content }}
+
+      - name: Publish to Modrinth (NeoForge)
+        uses: Kir-Antipov/mc-publish@v3
+        with:
+          modrinth-id: auto-gui-scaler
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          files: neoforge/build/libs/!(*-@(dev|sources|javadoc)).jar
+          name: GUI Scaler ${{ github.ref_name }} [NeoForge]
+          version: ${{ github.ref_name }}
+          version-type: release
+
+          loaders: neoforge
+          game-versions: 1.21.1
+
+          changelog: ${{ steps.changelog.outputs.content }}
+
+      # GitHub Release
       - name: Vytvoření GitHub releasu
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
+          body: ${{ steps.changelog.outputs.content }}
           files: |
             fabric/build/libs/*.jar
             forge/build/libs/*.jar

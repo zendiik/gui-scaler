@@ -6,7 +6,7 @@ plugins {
 
 sonar {
     properties {
-        property "sonar.projectKey", "zendiik_gui-scaler_7318837b-602c-45bc-bd17-9c7ce0cda6b0"
+        property "sonar.projectKey", "zendiik_gui-scaler_04adaeb7-afa3-4b1f-89e0-6870ff42a0a7"
         property "sonar.projectName", "gui-scaler"
         property "sonar.qualitygate.wait", true
         property "sonar.sources", "src/main/java"

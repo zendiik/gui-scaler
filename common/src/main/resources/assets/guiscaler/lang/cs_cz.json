@@ -1,0 +1,15 @@
+{
+  "text.autoconfig.guiscaler.title": "Konfigurace GUI Scaler",
+  "text.autoconfig.guiscaler.option.enableAutoScale": "Povolit automaticke skalovani",
+  "text.autoconfig.guiscaler.option.enableAutoScale.@Tooltip": "Automaticky prizpusobi velikost GUI podle velikosti okna",
+  "text.autoconfig.guiscaler.option.mode": "Rezim skalovani",
+  "text.autoconfig.guiscaler.option.mode.@Tooltip": "AUTO: Inteligentni skalovani podle rozliseni a pixel density\nCUSTOM: Pouzije vlastni pravidla definovana nize",
+  "text.autoconfig.guiscaler.option.customRules": "Vlastni pravidla",
+  "text.autoconfig.guiscaler.option.customRules.@Tooltip": "Definuje vlastni pravidla: Sirka okna -> GUI Scale",
+  "text.autoconfig.guiscaler.option.customRules.rule1Width": "Pravidlo 1 Sirka",
+  "text.autoconfig.guiscaler.option.customRules.rule1Scale": "Pravidlo 1 Scale",
+  "text.autoconfig.guiscaler.option.customRules.rule2Width": "Pravidlo 2 Sirka",
+  "text.autoconfig.guiscaler.option.customRules.rule2Scale": "Pravidlo 2 Scale",
+  "text.autoconfig.guiscaler.option.customRules.rule3Width": "Pravidlo 3 Sirka",
+  "text.autoconfig.guiscaler.option.customRules.rule3Scale": "Pravidlo 3 Scale"
+}

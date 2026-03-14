@@ -7,7 +7,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.ModLoadingContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +15,8 @@ import java.util.Map;
 @Mod(Constants.MOD_ID)
 public class GuiScaler {
 
-    public GuiScaler(FMLJavaModLoadingContext modLoadingContext) {
-        modLoadingContext.registerConfig(ModConfig.Type.CLIENT, GuiScalerConfig.CLIENT_CONFIG);
+    public GuiScaler() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, GuiScalerConfig.CLIENT_CONFIG);
 
         CommonClass.init();
 

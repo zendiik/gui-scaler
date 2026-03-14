@@ -1,41 +1,57 @@
 package eu.netleak.guiscaler;
 
-import eu.netleak.guiscaler.config.GuiScalerConfig;
+import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+import com.terraformersmc.modmenu.api.ModMenuApi;
+import eu.netleak.guiscaler.config.GuiScalerConfigModel;
 import eu.netleak.guiscaler.core.ScaleMode;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class GuiScaler implements ModInitializer {
+public class GuiScaler implements ModInitializer, ModMenuApi {
 
-    public static final GuiScalerConfig CONFIG = GuiScalerConfig.createAndLoad();
+    private static GuiScalerConfigModel CONFIG;
 
     @Override
     public void onInitialize() {
+        AutoConfig.register(GuiScalerConfigModel.class, GsonConfigSerializer::new);
+        CONFIG = AutoConfig.getConfigHolder(GuiScalerConfigModel.class).getConfig();
+
         CommonClass.init();
 
-        // Set config provider for CommonClass
         CommonClass.setConfigProvider(new CommonClass.ConfigProvider() {
             @Override
             public boolean isAutoScaleEnabled() {
-                return CONFIG.enableAutoScale();
+                return CONFIG.enableAutoScale;
             }
 
             @Override
             public ScaleMode getScaleMode() {
-                return CONFIG.mode();
+                return CONFIG.mode;
             }
 
             @Override
             public Map<Integer, Integer> getCustomRules() {
-                return CONFIG.customRules();
+                Map<Integer, Integer> rules = new HashMap<>();
+                GuiScalerConfigModel.CustomRules cr = CONFIG.customRules;
+                if (cr.rule1Width > 0) rules.put(cr.rule1Width, cr.rule1Scale);
+                if (cr.rule2Width > 0) rules.put(cr.rule2Width, cr.rule2Scale);
+                if (cr.rule3Width > 0) rules.put(cr.rule3Width, cr.rule3Scale);
+                return rules;
             }
         });
 
-        // Register screen init callback
         ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
             CommonClass.onScreenInit();
         });
+    }
+
+    @Override
+    public ConfigScreenFactory<?> getModConfigScreenFactory() {
+        return parent -> AutoConfig.getConfigScreen(GuiScalerConfigModel.class, parent).get();
     }
 }

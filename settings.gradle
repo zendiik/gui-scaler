@@ -48,4 +48,3 @@ rootProject.name = 'Boilerplate'
 include("common")
 include("fabric")
 include("forge")
-include("neoforge")

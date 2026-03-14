@@ -16,7 +16,10 @@
     "environment": "client",
     "entrypoints": {
         "main": [
-          "eu.netleak.guiscaler.GuiScaler"
+            "eu.netleak.guiscaler.GuiScaler"
+        ],
+        "modmenu": [
+            "eu.netleak.guiscaler.GuiScaler"
         ]
     },
     "mixins": [
@@ -27,11 +30,7 @@
         "fabricloader": ">=0.14",
         "fabric-api": "*",
         "minecraft": "${minecraft_version}",
-        "java": ">=21",
-        "owo": ">=0.12.0+1.21"
-    },
-    "suggests": {
-        "another-mod": "*"
+        "java": ">=${java_version}",
+        "cloth-config2": ">=11.0.0"
     }
 }
-  

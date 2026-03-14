@@ -11,7 +11,7 @@ Automatically scales Minecraft GUI based on window resolution.
 
 - **Automatic GUI scaling** - dynamically adjusts GUI scale when window size changes
 - **Intelligent scaling** - uses pixel density detection for optimal readability
-- **Multiloader support** - works on Fabric, Forge, and NeoForge
+- **Multiloader support** - works on Fabric and Forge
 - **Configurable** - choose between AUTO (intelligent) or CUSTOM (user-defined) modes
 - **Real-time** - triggers on every screen open (fullscreen toggle, window resize)
 
@@ -32,28 +32,20 @@ Define your own scaling rules in the config file.
 
 ## Installation
 
-1. Download the mod for your platform (Fabric, Forge, or NeoForge)
+1. Download the mod for your platform (Fabric or Forge)
 2. Place the JAR file in your `mods/` folder
 3. Launch Minecraft
 
 ## Configuration
 
-Config file location: `config/guiscaler-client.toml` (or `.json5` for Fabric)
+### Fabric (Cloth Config)
+Config file: `config/guiscaler.json`
 
-### Fabric (owo-lib)
-```json5
-{
-	"enableAutoScale": true,
-	"mode": "AUTO",
-	"customRules": {
-		"2560": 3,
-		"1920": 2,
-		"1280": 1
-	}
-}
-```
+Config screen available via **ModMenu** → GUI Scaler → Config button.
 
-### Forge/NeoForge
+### Forge
+Config file: `config/guiscaler-client.toml`
+
 ```toml
 #GUI Scaler Configuration
 [general]
@@ -66,27 +58,12 @@ Config file location: `config/guiscaler-client.toml` (or `.json5` for Fabric)
 	customRules = ["2560:3", "1920:2", "1280:1"]
 ```
 
-## Building
-
-**Important**: Build must be run in Windows cmd, not WSL.
-
-```cmd
-cd C:\_dev\minecraft\mods\GUI Scaler
-gradlew.bat build
-```
-
-Output JARs will be in:
-- `fabric/build/libs/`
-- `forge/build/libs/`
-- `neoforge/build/libs/`
-
 ## Requirements
 
-- Minecraft 1.21.1
-- Java 21
-- Fabric Loader 0.16.10+ (Fabric)
-- Forge 52.0.28+ (Forge)
-- NeoForge 21.1.80+ (NeoForge)
+- Minecraft 1.20.1
+- Java 17
+- Fabric Loader 0.16.9+ (Fabric)
+- Forge 47.2.30+ (Forge)
 
 ## License
 

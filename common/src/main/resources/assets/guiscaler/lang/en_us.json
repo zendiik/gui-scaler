@@ -1,2 +1,15 @@
 {
+  "text.autoconfig.guiscaler.title": "GUI Scaler Configuration",
+  "text.autoconfig.guiscaler.option.enableAutoScale": "Enable Auto Scale",
+  "text.autoconfig.guiscaler.option.enableAutoScale.@Tooltip": "Automatically adjusts GUI scale based on window size",
+  "text.autoconfig.guiscaler.option.mode": "Scale Mode",
+  "text.autoconfig.guiscaler.option.mode.@Tooltip": "AUTO: Smart scaling based on resolution and pixel density\nCUSTOM: Uses custom rules defined below",
+  "text.autoconfig.guiscaler.option.customRules": "Custom Rules",
+  "text.autoconfig.guiscaler.option.customRules.@Tooltip": "Define custom rules: Window Width -> GUI Scale",
+  "text.autoconfig.guiscaler.option.customRules.rule1Width": "Rule 1 Width",
+  "text.autoconfig.guiscaler.option.customRules.rule1Scale": "Rule 1 Scale",
+  "text.autoconfig.guiscaler.option.customRules.rule2Width": "Rule 2 Width",
+  "text.autoconfig.guiscaler.option.customRules.rule2Scale": "Rule 2 Scale",
+  "text.autoconfig.guiscaler.option.customRules.rule3Width": "Rule 3 Width",
+  "text.autoconfig.guiscaler.option.customRules.rule3Scale": "Rule 3 Scale"
 }

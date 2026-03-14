@@ -18,7 +18,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     container:
-      image: eclipse-temurin:21
+      image: eclipse-temurin:17
     env:
       GRADLE_USER_HOME: cache/
     steps:
@@ -50,7 +50,6 @@ jobs:
           path: |
             fabric/build/libs/*.jar
             forge/build/libs/*.jar
-            neoforge/build/libs/*.jar
             !**/build/libs/*-sources.jar
             !**/build/libs/*-javadoc.jar
 
@@ -58,18 +57,18 @@ jobs:
     name: SonarQube Analysis
     runs-on: ubuntu-latest
     container:
-      image: gradle:8.12-jdk21
+      image: gradle:8.12-jdk17
     needs: build
     if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 21
+          fetch-depth: 0
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: 21
-          distribution: 'zulu' # Alternative distribution options are available.
+          java-version: 17
+          distribution: 'zulu'
       - name: Nastavení spustitelných práv pro gradlew
         run: |
           chmod a+x ./gradlew
@@ -96,7 +95,6 @@ jobs:
     name: Vytvoření releasu
     runs-on: ubuntu-latest
     needs: build
-    # Tento job se spustí pouze při pushnutí tagu
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Checkout repository
@@ -129,7 +127,7 @@ jobs:
           version-type: release
 
           loaders: fabric
-          game-versions: 1.21.1
+          game-versions: 1.20.1
 
           changelog: ${{ steps.changelog.outputs.content }}
 
@@ -145,23 +143,7 @@ jobs:
           version-type: release
 
           loaders: forge
-          game-versions: 1.21.1
-
-          changelog: ${{ steps.changelog.outputs.content }}
-
-      - name: Publish to CurseForge (NeoForge)
-        uses: Kir-Antipov/mc-publish@v3
-        with:
-          curseforge-id: 1373686
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-
-          files: neoforge/build/libs/!(*-@(dev|sources|javadoc)).jar
-          name: GUI Scaler ${{ github.ref_name }} [NeoForge]
-          version: ${{ github.ref_name }}
-          version-type: release
-
-          loaders: neoforge
-          game-versions: 1.21.1
+          game-versions: 1.20.1
 
           changelog: ${{ steps.changelog.outputs.content }}
 
@@ -178,7 +160,7 @@ jobs:
           version-type: release
 
           loaders: fabric
-          game-versions: 1.21.1
+          game-versions: 1.20.1
 
           changelog: ${{ steps.changelog.outputs.content }}
 
@@ -194,23 +176,7 @@ jobs:
           version-type: release
 
           loaders: forge
-          game-versions: 1.21.1
-
-          changelog: ${{ steps.changelog.outputs.content }}
-
-      - name: Publish to Modrinth (NeoForge)
-        uses: Kir-Antipov/mc-publish@v3
-        with:
-          modrinth-id: auto-gui-scaler
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-
-          files: neoforge/build/libs/!(*-@(dev|sources|javadoc)).jar
-          name: GUI Scaler ${{ github.ref_name }} [NeoForge]
-          version: ${{ github.ref_name }}
-          version-type: release
-
-          loaders: neoforge
-          game-versions: 1.21.1
+          game-versions: 1.20.1
 
           changelog: ${{ steps.changelog.outputs.content }}
 
@@ -223,4 +189,3 @@ jobs:
           files: |
             fabric/build/libs/*.jar
             forge/build/libs/*.jar
-            neoforge/build/libs/*.jar

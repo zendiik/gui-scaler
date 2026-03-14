@@ -9,6 +9,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class GuiScaler implements ModInitializer, ModMenuApi {
@@ -37,7 +38,18 @@ public class GuiScaler implements ModInitializer, ModMenuApi {
 
             @Override
             public Map<Integer, Integer> getCustomRules() {
-                return CONFIG.customRules;
+                Map<Integer, Integer> rules = new HashMap<>();
+                for (String rule : CONFIG.customRules) {
+                    try {
+                        String[] parts = rule.split(":");
+                        if (parts.length == 2) {
+                            rules.put(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+                        }
+                    } catch (NumberFormatException e) {
+                        Constants.LOG.error("Invalid custom rule format: {}", rule);
+                    }
+                }
+                return rules;
             }
         });
 
@@ -49,6 +61,8 @@ public class GuiScaler implements ModInitializer, ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> AutoConfig.getConfigScreen(GuiScalerConfigModel.class, parent).get();
+        @SuppressWarnings("removal")
+        ConfigScreenFactory<?> factory = parent -> AutoConfig.getConfigScreen(GuiScalerConfigModel.class, parent).get();
+        return factory;
     }
 }

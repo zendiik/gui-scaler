@@ -4,6 +4,13 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.3] - 2026-03-14
+
+### Fixed
+- GUI scale not applying visually when window is maximized before menu loads (added `resizeDisplay()` call)
+- Fabric dev launcher crash caused by duplicate ASM classes on classpath
+- Downgraded Fabric Loom from unstable 1.10-SNAPSHOT to stable 1.9.2
+
 ## [1.0.2] - 2025-11-02
 
 ### Added

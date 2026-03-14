@@ -120,8 +120,7 @@ jobs:
           version-type: release
 
           loaders: fabric
-          game-versions: "[1.21.1, 1.22)"
-          game-version-filter: releases
+          game-versions: 1.21.1
           java: 21
 
           dependencies: |
@@ -144,8 +143,7 @@ jobs:
           version-type: release
 
           loaders: forge
-          game-versions: "[1.21.1, 1.22)"
-          game-version-filter: releases
+          game-versions: 1.21.1
           java: 21
 
           changelog-file: CHANGELOG.md
@@ -164,8 +162,7 @@ jobs:
           version-type: release
 
           loaders: neoforge
-          game-versions: "[1.21.1, 1.22)"
-          game-version-filter: releases
+          game-versions: 1.21.1
           java: 21
 
           changelog-file: CHANGELOG.md

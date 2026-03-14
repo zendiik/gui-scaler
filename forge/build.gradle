@@ -78,8 +78,6 @@ dependencies {
 
     // Forge's hack fix
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
-
-    implementation fg.deobf("curse.maven:jei-${project.jei_id}:${project.jei_forge_version}")
 }
 
 publishing {

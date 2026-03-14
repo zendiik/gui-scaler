@@ -32,7 +32,7 @@ dependencies {
     }
 
     modImplementation "curse.maven:modmenu-${project.modmenu_id}:${project.modmenu_version}"
-    modImplementation "curse.maven:jei-${project.jei_id}:${project.jei_fabric_version}"
+    modImplementation "curse.maven:jade-${project.jade_id}:${project.jade_fabric_version}"
 
     testImplementation "net.fabricmc:fabric-loader-junit:${project.fabric_loader_version}"
 }

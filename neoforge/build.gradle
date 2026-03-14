@@ -22,8 +22,11 @@ neoForge {
         client {
             client()
         }
-        data {
-            data()
+        clientData {
+            clientData()
+        }
+        serverData {
+            serverData()
         }
         server {
             server()
@@ -42,7 +45,7 @@ repositories {
 
 dependencies {
     implementation "curse.maven:jei-${project.jei_id}:${project.jei_neoforge_version}"
-    implementation "curse.maven:emi-${project.emi_id}:${project.emi_neoforge_version}"
+    implementation "curse.maven:jade-${project.jade_id}:${project.jade_neoforge_version}"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

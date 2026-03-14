@@ -4,6 +4,20 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.1.0] - 2026-03-14
+
+### Changed
+- Updated to Minecraft 1.21.4
+- Updated Fabric API to 0.110.5+1.21.4
+- Updated Forge to 54.1.0
+- Updated NeoForge to 21.4.147
+- Updated Cloth Config to 17.0.144
+- Updated Parchment mappings to 2024.12.29
+- Updated pack format to 46
+- Added Jade as optional test dependency
+- Removed JEI (Fabric/Forge) and EMI (NeoForge) - no 1.21.4 builds available
+- Updated CI deploy to target MC 1.21.4
+
 ## [1.0.3] - 2026-03-14
 
 ### Fixed

@@ -4,6 +4,22 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.20.1-1.0.0] - 2026-03-14
+
+### Added
+- Backport to Minecraft 1.20.1 (Fabric + Forge)
+- Cloth Config integration for Fabric (replaces owo-lib)
+- ModMenu config screen support
+- Czech translation (cs_cz)
+
+### Changed
+- Java 21 to Java 17
+- Build system switched to ModDevGradle legacyforge
+- NeoForge excluded (not available for 1.20.1)
+
+### Fixed
+- GUI scale not applying after change (missing resizeDisplay call)
+
 ## [1.0.2] - 2025-11-02
 
 ### Added

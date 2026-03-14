@@ -1,2 +1,9 @@
 {
+  "text.autoconfig.guiscaler.title": "GUI Scaler Config",
+  "text.autoconfig.guiscaler.option.enableAutoScale": "Enable Auto Scale",
+  "text.autoconfig.guiscaler.option.enableAutoScale.@Tooltip": "Automatically adjust GUI scale based on window size",
+  "text.autoconfig.guiscaler.option.mode": "Scale Mode",
+  "text.autoconfig.guiscaler.option.mode.@Tooltip": "AUTO: Intelligent scaling based on resolution and pixel density\nCUSTOM: Use custom rules defined below",
+  "text.autoconfig.guiscaler.option.customRules": "Custom Rules",
+  "text.autoconfig.guiscaler.option.customRules.@Tooltip": "Define custom scale rules: Window Width -> GUI Scale\nExample: 2560 -> 3 means use scale 3 for 2560px width"
 }

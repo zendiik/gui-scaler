@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
           "eu.netleak.guiscaler.GuiScaler"
+        ],
+        "modmenu": [
+          "eu.netleak.guiscaler.GuiScaler"
         ]
     },
     "mixins": [
@@ -28,7 +31,7 @@
         "fabric-api": "*",
         "minecraft": "${minecraft_version}",
         "java": ">=21",
-        "owo": ">=0.12.0+1.21"
+        "cloth-config": ">=15.0.0"
     },
     "suggests": {
         "another-mod": "*"

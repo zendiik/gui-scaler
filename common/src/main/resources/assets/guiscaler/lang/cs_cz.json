@@ -1,0 +1,9 @@
+{
+  "text.autoconfig.guiscaler.title": "Konfigurace GUI Scaler",
+  "text.autoconfig.guiscaler.option.enableAutoScale": "Povolit automatické škálování",
+  "text.autoconfig.guiscaler.option.enableAutoScale.@Tooltip": "Automaticky přizpůsobí velikost GUI podle velikosti okna",
+  "text.autoconfig.guiscaler.option.mode": "Režim škálování",
+  "text.autoconfig.guiscaler.option.mode.@Tooltip": "AUTO: Inteligentní škálování podle rozlišení a pixel density\nCUSTOM: Použije vlastní pravidla definovaná níže",
+  "text.autoconfig.guiscaler.option.customRules": "Vlastní pravidla",
+  "text.autoconfig.guiscaler.option.customRules.@Tooltip": "Definuje vlastní pravidla: Šířka okna -> GUI Scale\nPříklad: 2560 -> 3 znamená použij scale 3 pro šířku 2560px"
+}

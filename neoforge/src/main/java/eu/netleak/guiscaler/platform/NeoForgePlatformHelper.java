@@ -3,7 +3,7 @@ package eu.netleak.guiscaler.platform;
 import eu.netleak.guiscaler.platform.services.IPlatformHelper;
 import net.minecraft.client.Minecraft;
 import net.neoforged.fml.ModList;
-import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 public class NeoForgePlatformHelper implements IPlatformHelper {
 
@@ -19,7 +19,7 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean isDevelopmentEnvironment() {
-        return !FMLLoader.isProduction();
+        return !FMLEnvironment.isProduction();
     }
 
     @Override

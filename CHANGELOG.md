@@ -4,6 +4,23 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.2.0] - 2026-03-14
+
+### Changed
+- Updated to Minecraft 1.21.11
+- Upgraded Gradle to 9.2.1
+- Upgraded Fabric Loom to 1.14
+- Updated Fabric API to 0.141.3+1.21.11
+- Updated Fabric Loader to 0.18.1
+- Updated NeoForge to 21.11.38-beta
+- Updated Cloth Config to 21.11.153
+- Updated Parchment mappings to 1.21.11 BLEEDING-SNAPSHOT
+- Updated pack format to min/max 75
+- Replaced `FMLLoader.isProduction()` with `FMLEnvironment.isProduction()` for NeoForge
+
+### Removed
+- Forge platform support (ForgeGradle does not support Gradle 9)
+
 ## [1.1.0] - 2026-03-14
 
 ### Changed

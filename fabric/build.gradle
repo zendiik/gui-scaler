@@ -8,6 +8,16 @@ repositories {
     maven { url "https://cursemaven.com" }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'org.ow2.asm:asm:9.7.1'
+        force 'org.ow2.asm:asm-analysis:9.7.1'
+        force 'org.ow2.asm:asm-commons:9.7.1'
+        force 'org.ow2.asm:asm-tree:9.7.1'
+        force 'org.ow2.asm:asm-util:9.7.1'
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.layered {

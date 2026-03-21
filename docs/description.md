@@ -8,7 +8,7 @@
 *   **Intelligent Detection** — Uses pixel density detection for optimal readability on any display
 *   **Real-time Updates** — Triggers instantly on screen open, fullscreen toggle, or window resize
 *   **Two Scaling Modes** — Smart AUTO mode or fully customizable CUSTOM mode
-*   **Multiloader** — Works on **Fabric**, **Forge**, and **NeoForge**
+*   **Multiloader** — Works on **Fabric** and **NeoForge** (Forge supported up to 1.21.4)
 *   **ModMenu Support** — Fabric users get an in-game config screen via ModMenu
 
 ## 🎯 Scaling Modes
@@ -42,7 +42,7 @@ Define your own width → scale rules in the config file.
 }
 ```
 
-**Forge / NeoForge** (`config/guiscaler-client.toml`):
+**NeoForge** (`config/guiscaler-client.toml`):
 
 ```
 [general]
@@ -60,8 +60,8 @@ Define your own width → scale rules in the config file.
 | Loader | Required Dependencies |
 | --- | --- |
 | Fabric | Fabric API, Cloth Config |
-| Forge | — |
 | NeoForge | — |
+| Forge | — *(up to 1.21.4 only)* |
 
 ## 🔗 Links
 

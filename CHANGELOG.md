@@ -4,6 +4,20 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.2.2] - 2026-04-16
+
+### Fixed
+- `StackOverflowError` crash when resizing the window (especially on Wayland). Added a reentrancy guard to prevent recursive GUI scaling calls triggered by `resizeDisplay()` re-initializing the current screen ([#2](https://github.com/zendiik/gui-scaler/issues/2))
+
+## [1.2.1] - 2026-03-21
+
+### Fixed
+- Fabric: custom rules not saving correctly in the config GUI (switched to string list representation)
+
+### Changed
+- Upgraded SonarQube plugin for Gradle 9 compatibility
+- Upgraded GitHub Actions to Node.js 24 compatible versions
+
 ## [1.2.0] - 2026-03-14
 
 ### Changed

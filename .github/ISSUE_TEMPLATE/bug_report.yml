@@ -1,0 +1,78 @@
+name: Bug Report
+description: Report a crash, glitch, or unexpected behavior
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the form below so we can reproduce and fix it.
+
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft Version
+      placeholder: "e.g. 1.21.4"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod Loader
+      options:
+        - Fabric
+        - NeoForge
+        - Forge
+    validations:
+      required: true
+
+  - type: input
+    id: mod-version
+    attributes:
+      label: GUI Scaler Version
+      placeholder: "e.g. 1.0.3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly. What did you expect to happen vs. what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we trigger this bug?
+      placeholder: |
+        1. Launch Minecraft with GUI Scaler installed
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: crash-log
+    attributes:
+      label: Crash Log / Error Log
+      description: Paste the crash report or relevant log output. You can also attach the file.
+      render: text
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other Installed Mods
+      description: List other mods you have installed (helps identify conflicts).
+      placeholder: |
+        - Fabric API
+        - Cloth Config
+        - ...
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      placeholder: "e.g. Windows 11, Fedora 42 (Wayland), macOS 15"

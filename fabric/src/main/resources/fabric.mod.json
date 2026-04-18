@@ -29,9 +29,9 @@
     "depends": {
         "fabricloader": ">=0.18",
         "fabric-api": "*",
-        "minecraft": "${minecraft_version}",
-        "java": ">=21",
-        "cloth-config": ">=21.0.0"
+        "minecraft": ">=26.1",
+        "java": ">=25",
+        "cloth-config": ">=26.1.0"
     },
     "suggests": {
         "another-mod": "*"

@@ -30,7 +30,7 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
     @Override
     public void setGuiScale(int scale) {
         Minecraft.getInstance().options.guiScale().set(scale);
-        Minecraft.getInstance().resizeDisplay();
+        Minecraft.getInstance().resizeGui();
     }
 
     @Override

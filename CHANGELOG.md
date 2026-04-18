@@ -4,6 +4,21 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.0] - 2026-04-18
+
+### Changed
+- **BREAKING**: Updated to Minecraft 26.1.x (builds against 26.1.1, supports 26.1 and 26.1.1)
+- Updated Java requirement to 25 (Minecraft 26.1+ requires Java 25)
+- Updated Fabric API to 0.145.4+26.1.1
+- Updated Fabric Loader to 0.18.6
+- Updated NeoForge to 26.1.1.15-beta
+- Updated Cloth Config to 26.1.154
+- Updated pack format to 101
+- Switched ModMenu dependency from CurseMaven to Terraformers Maven (18.0.0-alpha.8)
+
+### Removed
+- Parchment mappings (Mojang de-obfuscated parameter names in 26.1+, making Parchment redundant)
+
 ## [1.2.2] - 2026-04-16
 
 ### Fixed

@@ -5,6 +5,7 @@ import com.terraformersmc.modmenu.api.ModMenuApi;
 import eu.netleak.guiscaler.config.GuiScalerConfigModel;
 import eu.netleak.guiscaler.core.ScaleMode;
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfigClient;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
@@ -61,8 +62,6 @@ public class GuiScaler implements ModInitializer, ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        @SuppressWarnings("removal")
-        ConfigScreenFactory<?> factory = parent -> AutoConfig.getConfigScreen(GuiScalerConfigModel.class, parent).get();
-        return factory;
+        return parent -> AutoConfigClient.getConfigScreen(GuiScalerConfigModel.class, parent).get();
     }
 }

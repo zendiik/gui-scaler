@@ -43,7 +43,7 @@ public class GuiScaler {
                             int scale = Integer.parseInt(parts[1]);
                             rules.put(width, scale);
                         }
-                    } catch (NumberFormatException e) {
+                    } catch (NumberFormatException _) {
                         Constants.LOG.error("Invalid custom rule format: {}", rule);
                     }
                 }

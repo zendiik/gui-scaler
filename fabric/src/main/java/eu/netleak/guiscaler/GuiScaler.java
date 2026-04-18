@@ -46,7 +46,7 @@ public class GuiScaler implements ModInitializer, ModMenuApi {
                         if (parts.length == 2) {
                             rules.put(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
                         }
-                    } catch (NumberFormatException e) {
+                    } catch (NumberFormatException _) {
                         Constants.LOG.error("Invalid custom rule format: {}", rule);
                     }
                 }

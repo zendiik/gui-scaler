@@ -19,7 +19,7 @@
           "eu.netleak.guiscaler.GuiScaler"
         ],
         "modmenu": [
-          "eu.netleak.guiscaler.GuiScaler"
+          "eu.netleak.guiscaler.GuiScalerModMenuIntegration"
         ]
     },
     "mixins": [

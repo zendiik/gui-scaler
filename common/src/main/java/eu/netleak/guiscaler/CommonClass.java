@@ -10,6 +10,8 @@ public class CommonClass {
 
     private static ConfigProvider configProvider;
     private static boolean isScaling = false;
+    private static int lastWidth = -1;
+    private static int lastHeight = -1;
 
     public static void init() {
         Constants.LOG.info("{} initialized on {}", Constants.MOD_NAME, Services.PLATFORM.getPlatformName());
@@ -25,10 +27,16 @@ public class CommonClass {
             return;
         }
 
+        int width = Services.PLATFORM.getWindowWidth();
+        int height = Services.PLATFORM.getWindowHeight();
+        if (width == lastWidth && height == lastHeight) {
+            return;
+        }
+
         isScaling = true;
         try {
-            int width = Services.PLATFORM.getWindowWidth();
-            int height = Services.PLATFORM.getWindowHeight();
+            lastWidth = width;
+            lastHeight = height;
             int currentScale = Services.PLATFORM.getCurrentGuiScale();
 
             ScaleMode mode = configProvider.getScaleMode();

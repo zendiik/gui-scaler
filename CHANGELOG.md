@@ -4,6 +4,11 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.4.0] - 2026-05-31
+
+### Changed
+- Auto-scale now only re-applies the GUI scale when the window size actually changes (resize / fullscreen toggle) instead of on every screen open, so the mod sets the *default* GUI scale while manual changes in Sodium / vanilla options stick ([#3](https://github.com/zendiik/gui-scaler/issues/3)).
+
 ## [1.3.1] - 2026-04-19
 
 ### Fixed

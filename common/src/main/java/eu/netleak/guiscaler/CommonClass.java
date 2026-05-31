@@ -9,6 +9,9 @@ import java.util.Map;
 public class CommonClass {
 
     private static ConfigProvider configProvider;
+    private static boolean isScaling = false;
+    private static int lastWidth = -1;
+    private static int lastHeight = -1;
 
     public static void init() {
         Constants.LOG.info("{} initialized on {}", Constants.MOD_NAME, Services.PLATFORM.getPlatformName());
@@ -19,22 +22,34 @@ public class CommonClass {
     }
 
     public static void onScreenInit() {
+        if (isScaling) return;
         if (configProvider == null || !configProvider.isAutoScaleEnabled()) {
             return;
         }
 
         int width = Services.PLATFORM.getWindowWidth();
         int height = Services.PLATFORM.getWindowHeight();
-        int currentScale = Services.PLATFORM.getCurrentGuiScale();
+        if (width == lastWidth && height == lastHeight) {
+            return;
+        }
 
-        ScaleMode mode = configProvider.getScaleMode();
-        Map<Integer, Integer> customRules = configProvider.getCustomRules();
+        isScaling = true;
+        try {
+            lastWidth = width;
+            lastHeight = height;
+            int currentScale = Services.PLATFORM.getCurrentGuiScale();
 
-        int newScale = GUIScaleCalculator.calculateOptimalScale(width, height, mode, customRules);
+            ScaleMode mode = configProvider.getScaleMode();
+            Map<Integer, Integer> customRules = configProvider.getCustomRules();
 
-        if (newScale != currentScale) {
-            Services.PLATFORM.setGuiScale(newScale);
-            Constants.LOG.info("GUI scale changed: {} → {} ({}x{})", currentScale, newScale, width, height);
+            int newScale = GUIScaleCalculator.calculateOptimalScale(width, height, mode, customRules);
+
+            if (newScale != currentScale) {
+                Services.PLATFORM.setGuiScale(newScale);
+                Constants.LOG.info("GUI scale changed: {} → {} ({}x{})", currentScale, newScale, width, height);
+            }
+        } finally {
+            isScaling = false;
         }
     }
 

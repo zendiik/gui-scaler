@@ -109,6 +109,10 @@ jobs:
         with:
           name: build-artifacts
 
+      - name: Extract latest changelog section
+        run: |
+          awk '/^## \[/{n++; if(n>1) exit} n' CHANGELOG.md > RELEASE_NOTES.md
+
       - name: Publish Fabric
         uses: Kir-Antipov/mc-publish@v3
         with:
@@ -133,7 +137,7 @@ jobs:
             fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}
             cloth-config(required){modrinth:9s6osm5g}{curseforge:348521}
 
-          changelog-file: CHANGELOG.md
+          changelog-file: RELEASE_NOTES.md
 
       - name: Publish NeoForge
         uses: Kir-Antipov/mc-publish@v3
@@ -155,13 +159,13 @@ jobs:
             26.1.2
           java: 25
 
-          changelog-file: CHANGELOG.md
+          changelog-file: RELEASE_NOTES.md
 
       - name: Create GitHub release
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: CHANGELOG.md
+          body_path: RELEASE_NOTES.md
           files: |
             fabric/build/libs/*.jar
             neoforge/build/libs/*.jar

@@ -126,6 +126,7 @@ jobs:
           game-versions: |
             26.1
             26.1.1
+            26.1.2
           java: 25
 
           dependencies: |
@@ -151,6 +152,7 @@ jobs:
           game-versions: |
             26.1
             26.1.1
+            26.1.2
           java: 25
 
           changelog-file: CHANGELOG.md

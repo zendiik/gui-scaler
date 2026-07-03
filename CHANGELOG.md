@@ -4,6 +4,11 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.4.1] - 2026-05-31
+
+### Added
+- Marked Minecraft 26.1.2 as supported (binary-compatible with the 26.1.1 build; no code changes).
+
 ## [1.4.0] - 2026-05-31
 
 ### Changed

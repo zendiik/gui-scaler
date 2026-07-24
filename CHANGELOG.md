@@ -4,6 +4,11 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.4.3] - 2026-07-24
+
+### Fixed
+- Duplicate title-screen buttons (e.g. a doubled "Mods" button, or a button added by another mod) when a second mod adds widgets and the window is resized. GUI Scaler no longer calls `resizeGui()` during screen init; the GUI scale is now applied via a mixin at the head of `Minecraft#resizeGui`, so vanilla performs a single relayout with no nested screen re-init that duplicated other mods' widgets ([#4](https://github.com/zendiik/gui-scaler/issues/4)).
+
 ## [1.4.2] - 2026-07-24
 
 ### Fixed

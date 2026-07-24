@@ -2,12 +2,9 @@ package eu.netleak.guiscaler;
 
 import eu.netleak.guiscaler.config.GuiScalerConfig;
 import eu.netleak.guiscaler.core.ScaleMode;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.neoforged.neoforge.common.NeoForge;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,14 +48,6 @@ public class GuiScaler {
             }
         });
 
-        NeoForge.EVENT_BUS.register(new ScreenEventHandler());
-    }
-
-    public static class ScreenEventHandler {
-
-        @SubscribeEvent
-        public void onScreenInit(ScreenEvent.Init.Post event) {
-            CommonClass.onScreenInit();
-        }
+        // GUI scale is applied via MinecraftMixin (common) hooking Minecraft#resizeGui.
     }
 }

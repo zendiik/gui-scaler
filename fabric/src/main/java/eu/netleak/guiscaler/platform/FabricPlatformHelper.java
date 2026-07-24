@@ -27,9 +27,8 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public void setGuiScale(int scale) {
+    public void setGuiScaleOption(int scale) {
         Minecraft.getInstance().options.guiScale().set(scale);
-        Minecraft.getInstance().resizeGui();
     }
 
     @Override

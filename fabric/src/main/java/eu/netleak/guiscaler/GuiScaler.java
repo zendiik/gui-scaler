@@ -5,7 +5,6 @@ import eu.netleak.guiscaler.core.ScaleMode;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,9 +50,6 @@ public class GuiScaler implements ModInitializer {
             }
         });
 
-        // Register screen init callback
-        ScreenEvents.AFTER_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
-            CommonClass.onScreenInit();
-        });
+        // GUI scale is applied via MinecraftMixin (common) hooking Minecraft#resizeGui.
     }
 }

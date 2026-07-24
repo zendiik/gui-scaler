@@ -73,3 +73,4 @@ GNU LGPL 3.0
 
 - Repository: https://github.com/zendiik/gui-scaler
 - Issues: https://github.com/zendiik/gui-scaler/issues
+- ☕ Support / Donate: https://ko-fi.com/netleak

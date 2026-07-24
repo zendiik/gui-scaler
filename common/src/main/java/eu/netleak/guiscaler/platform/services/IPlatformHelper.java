@@ -42,11 +42,13 @@ public interface IPlatformHelper {
     int getCurrentGuiScale();
 
     /**
-     * Sets the GUI scale to the specified value.
+     * Sets the GUI scale option value without triggering a resize. Vanilla's own resize pass
+     * reads the option and applies it; we must not call resizeGui() ourselves (see {@code
+     * CommonClass#applyAutoScale}).
      *
      * @param scale The GUI scale value to set.
      */
-    void setGuiScale(int scale);
+    void setGuiScaleOption(int scale);
 
     /**
      * Gets the current window width.

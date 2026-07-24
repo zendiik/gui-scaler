@@ -2,9 +2,6 @@ package eu.netleak.guiscaler;
 
 import eu.netleak.guiscaler.config.GuiScalerConfig;
 import eu.netleak.guiscaler.core.ScaleMode;
-import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -51,15 +48,6 @@ public class GuiScaler {
             }
         });
 
-        MinecraftForge.EVENT_BUS.register(new ScreenEventHandler());
-    }
-
-    @Mod.EventBusSubscriber(modid = Constants.MOD_ID)
-    public static class ScreenEventHandler {
-
-        @SubscribeEvent
-        public static void onScreenInit(ScreenEvent.Init.Post event) {
-            CommonClass.onScreenInit();
-        }
+        // GUI scale is applied via MinecraftMixin (common) hooking Minecraft#resizeDisplay.
     }
 }

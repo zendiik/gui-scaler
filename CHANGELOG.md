@@ -4,6 +4,11 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.1] - 2026-07-24
+
+### Fixed
+- CUSTOM mode: editing the scale of a default width (1280/1920/2560) no longer reverts to the default on reload. Jankson appends the defaults after the saved list; `validatePostLoad()` now deduplicates by width keeping the last (user) entry, so the appended default no longer overrides it ([#5](https://github.com/zendiik/gui-scaler/issues/5)).
+
 ## [1.3.0] - 2026-05-31
 
 ### Changed

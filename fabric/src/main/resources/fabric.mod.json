@@ -9,7 +9,8 @@
     ],
     "contact": {
         "sources": "https://github.com/zendiik/gui-scaler",
-        "issues": "https://github.com/zendiik/gui-scaler/issues"
+        "issues": "https://github.com/zendiik/gui-scaler/issues",
+        "homepage": "https://ko-fi.com/netleak"
     },
     "license": "${license}",
     "icon": "${mod_id}.png",

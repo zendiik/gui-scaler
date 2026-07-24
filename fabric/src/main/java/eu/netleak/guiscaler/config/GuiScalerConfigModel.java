@@ -6,7 +6,7 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @Config(name = "guiscaler")
@@ -24,6 +24,20 @@ public class GuiScalerConfigModel implements ConfigData {
 
     @Override
     public void validatePostLoad() {
-        customRules = new ArrayList<>(new LinkedHashSet<>(customRules));
+        // Jankson appends the loaded values after the default-initialized list, so a saved list
+        // ends up as [default entries..., user entries...]. Deduplicate by width and keep the
+        // last occurrence, so the user's saved value wins over the appended default.
+        LinkedHashMap<Integer, String> byWidth = new LinkedHashMap<>();
+        for (String rule : customRules) {
+            String[] parts = rule.split(":");
+            if (parts.length == 2) {
+                try {
+                    byWidth.put(Integer.parseInt(parts[0].trim()), rule.trim());
+                } catch (NumberFormatException ignored) {
+                    // drop malformed entries; the parser would ignore them anyway
+                }
+            }
+        }
+        customRules = new ArrayList<>(byWidth.values());
     }
 }

@@ -4,6 +4,16 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.5.0] - 2026-07-25
+
+### Changed
+- **BREAKING**: Updated to Minecraft 26.2 (builds against 26.2). Requires Java 25.
+- Updated Fabric API to 0.155.0+26.2, Fabric Loader to 0.19.3, NeoForge to 26.2.0.16-beta, Cloth Config to 26.2.155, ModMenu to 20.0.1.
+- Updated Fabric Loom to 1.16.3, NeoForge moddev to 2.0.141, Gradle wrapper to 9.5.0.
+
+### Removed
+- `fabric-loom-companion` plugin (merged into Fabric Loom 1.16).
+
 ## [1.4.3] - 2026-07-24
 
 ### Fixed

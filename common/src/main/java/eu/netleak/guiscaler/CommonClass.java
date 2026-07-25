@@ -9,6 +9,8 @@ import java.util.Map;
 public class CommonClass {
 
     private static ConfigProvider configProvider;
+    private static int lastWidth = -1;
+    private static int lastHeight = -1;
 
     public static void init() {
         Constants.LOG.info("{} initialized on {}", Constants.MOD_NAME, Services.PLATFORM.getPlatformName());
@@ -32,6 +34,15 @@ public class CommonClass {
 
         int width = Services.PLATFORM.getWindowWidth();
         int height = Services.PLATFORM.getWindowHeight();
+        // Only recompute when the window size actually changed. resizeGui() also fires when the user
+        // manually changes the GUI scale option; without this guard we would immediately overwrite
+        // their choice, breaking manual scale changes (#3 regression from the #4 mixin).
+        if (width == lastWidth && height == lastHeight) {
+            return;
+        }
+        lastWidth = width;
+        lastHeight = height;
+
         ScaleMode mode = configProvider.getScaleMode();
         Map<Integer, Integer> customRules = configProvider.getCustomRules();
 

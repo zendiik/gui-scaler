@@ -4,6 +4,11 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.4.4] - 2026-07-25
+
+### Fixed
+- Manual GUI scale changes being immediately reverted to auto. The #4 mixin rewrite dropped the window-size tracking from [#3](https://github.com/zendiik/gui-scaler/issues/3), so `applyAutoScale` ran on every `resizeGui` — including the one triggered by manually changing the GUI scale option — and overwrote the chosen value. Auto-scale now recomputes only when the window size actually changes ([#4](https://github.com/zendiik/gui-scaler/issues/4)).
+
 ## [1.4.3] - 2026-07-24
 
 ### Fixed

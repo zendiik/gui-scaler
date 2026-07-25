@@ -13,5 +13,9 @@ sonar {
         property "sonar.sources", "src/main/java"
         property "sonar.java.binaries", "fabric/build/classes/java/main,neoforge/build/classes/java/main"
         property "sonar.java.libraries", "fabric/build/libs,neoforge/build/libs"
+        // Mixins use the '$' unique-name convention and are boilerplate — exclude from analysis.
+        property "sonar.exclusions", "**/mixin/**"
+        // Per-platform helpers are inherently near-identical (same Minecraft calls) — not real duplication.
+        property "sonar.cpd.exclusions", "**/platform/*PlatformHelper.java"
     }
 }

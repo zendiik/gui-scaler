@@ -33,7 +33,7 @@ public class GuiScalerConfigModel implements ConfigData {
             if (parts.length == 2) {
                 try {
                     byWidth.put(Integer.parseInt(parts[0].trim()), rule.trim());
-                } catch (NumberFormatException ignored) {
+                } catch (NumberFormatException _) {
                     // drop malformed entries; the parser would ignore them anyway
                 }
             }

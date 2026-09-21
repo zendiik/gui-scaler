@@ -86,11 +86,11 @@ Output JARs will be in:
 
 ## Requirements
 
-- Minecraft 26.2
+- Minecraft 26.3
 - Java 25
-- Fabric Loader 0.19.3+ and Fabric API (Fabric)
+- Fabric Loader 0.19.5+ and Fabric API (Fabric)
 - Cloth Config (Fabric)
-- NeoForge 26.2.0.16-beta+ (NeoForge)
+- NeoForge 26.3.0.7-beta+ (NeoForge)
 
 ## License
 

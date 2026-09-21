@@ -4,6 +4,18 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.6.0] - 2026-09-21
+
+### Changed
+- **BREAKING**: Updated to Minecraft 26.3 (builds against 26.3). Requires Java 25.
+- Updated Fabric API to 0.161.0+26.3, Fabric Loader to 0.19.5, NeoForge to 26.3.0.7-beta, Cloth Config to 26.3.158, ModMenu to 21.0.0-beta.1.
+- Updated Fabric Loom to 1.17.21, NeoForge moddev to 2.0.147, Gradle wrapper to 9.6.0.
+- `fabric.mod.json` dependency bounds now track the built version (Minecraft >=26.3, Fabric Loader >=0.19, Cloth Config >=26.3.0) instead of the stale 26.1 bounds.
+
+### Fixed
+- `pack.mcmeta` declared pack format 101, which was Minecraft 26.1's *data* pack format. The mod ships only assets, so it now declares the resource pack format of the targeted version (97 for 26.3).
+- NeoForge: replaced the `logoFile` property deprecated in 26.3 with `iconFile`.
+
 ## [1.5.2] - 2026-09-21
 
 ### Changed

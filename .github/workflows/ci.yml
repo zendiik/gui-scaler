@@ -128,7 +128,7 @@ jobs:
 
           loaders: fabric
           game-versions: |
-            26.2
+            26.3
           java: 25
 
           dependencies: |
@@ -152,7 +152,7 @@ jobs:
 
           loaders: neoforge
           game-versions: |
-            26.2
+            26.3
           java: 25
 
           changelog-file: RELEASE_NOTES.md

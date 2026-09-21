@@ -27,8 +27,13 @@ class GUIScaleCalculatorTest {
     }
 
     @Test
-    void autoMode_hdWidth_returnsScale1() {
-        assertEquals(1, GUIScaleCalculator.calculateOptimalScale(1280, 720, ScaleMode.AUTO, Map.of()));
+    void autoMode_hdWidth_returnsScale2() {
+        assertEquals(2, GUIScaleCalculator.calculateOptimalScale(1280, 720, ScaleMode.AUTO, Map.of()));
+    }
+
+    @Test
+    void autoMode_1600x900_returnsScale2() {
+        assertEquals(2, GUIScaleCalculator.calculateOptimalScale(1600, 900, ScaleMode.AUTO, Map.of()));
     }
 
     @Test
@@ -68,13 +73,13 @@ class GUIScaleCalculatorTest {
     }
 
     @Test
-    void autoMode_justBelow1920_returnsScale1() {
-        assertEquals(1, GUIScaleCalculator.calculateOptimalScale(1919, 1, ScaleMode.AUTO, Map.of()));
+    void autoMode_justBelow1920_returnsScale2() {
+        assertEquals(2, GUIScaleCalculator.calculateOptimalScale(1919, 1, ScaleMode.AUTO, Map.of()));
     }
 
     @Test
-    void autoMode_exactlyAt1280_returnsScale1() {
-        assertEquals(1, GUIScaleCalculator.calculateOptimalScale(1280, 1, ScaleMode.AUTO, Map.of()));
+    void autoMode_exactlyAt1280_returnsScale2() {
+        assertEquals(2, GUIScaleCalculator.calculateOptimalScale(1280, 1, ScaleMode.AUTO, Map.of()));
     }
 
     @Test

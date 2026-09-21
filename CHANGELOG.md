@@ -4,6 +4,17 @@ All notable changes to GUI Scaler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.5.2] - 2026-09-21
+
+### Changed
+- AUTO mode now returns GUI scale 2 for window widths from 1280 px up (previously scale 1).
+  On 1280x720 and 1600x900 windows scale 1 made the interface and fonts too small - vanilla's
+  own "Auto" would pick scale 3 at those sizes. Scale 3 remains reserved for 2560 px and very
+  high pixel counts.
+
+### Fixed
+- README documented the AUTO scale-3 threshold as 2880x1800; the code has always used 2560.
+
 ## [1.5.1] - 2026-07-25
 
 ### Fixed

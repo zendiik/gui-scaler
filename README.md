@@ -11,49 +11,54 @@ Automatically scales Minecraft GUI based on window resolution.
 
 - **Automatic GUI scaling** - dynamically adjusts GUI scale when window size changes
 - **Intelligent scaling** - uses pixel density detection for optimal readability
-- **Multiloader support** - works on Fabric, Forge, and NeoForge
+- **Multiloader support** - works on Fabric and NeoForge
 - **Configurable** - choose between AUTO (intelligent) or CUSTOM (user-defined) modes
-- **Real-time** - triggers on every screen open (fullscreen toggle, window resize)
+- **Real-time** - re-applies the scale whenever the window size changes (resize, fullscreen toggle)
 
 ## Scaling Logic
 
 ### AUTO Mode (Default)
 ```
-2880x1800+ (HiDPI/Retina) → GUI scale 3
-1920x1080+ (Full HD)      → GUI scale 2
-1280x720+  (HD)           → GUI scale 1
-Otherwise                 → GUI scale 0 (auto)
+2560+ wide, or over 4.5M pixels → GUI scale 3
+1280+ wide, or over 2M pixels   → GUI scale 2
+Otherwise                       → GUI scale 0 (let Minecraft decide)
 ```
 
-Uses combined width and pixel count for accurate detection.
+Uses combined width and pixel count for accurate detection. Widths are measured in
+framebuffer pixels, so on a HiDPI/Retina display a window that looks like 1280x720
+reports 2560x1440 and gets scale 3.
 
 ### CUSTOM Mode
-Define your own scaling rules in the config file.
+Define your own scaling rules in the config file. Rules are written as `width:scale`
+and match as "width >= threshold"; the highest matching rule wins. If no rule matches,
+Minecraft decides (scale 0).
 
 ## Installation
 
-1. Download the mod for your platform (Fabric, Forge, or NeoForge)
+1. Download the mod for your platform (Fabric or NeoForge)
 2. Place the JAR file in your `mods/` folder
 3. Launch Minecraft
 
 ## Configuration
 
-Config file location: `config/guiscaler-client.toml` (or `.json5` for Fabric)
+Config file location: `config/guiscaler-client.toml` (NeoForge) or `config/guiscaler.json5` (Fabric)
 
-### Fabric (owo-lib)
+### Fabric (Cloth Config)
 ```json5
 {
 	"enableAutoScale": true,
 	"mode": "AUTO",
-	"customRules": {
-		"2560": 3,
-		"1920": 2,
-		"1280": 1
-	}
+	"customRules": [
+		"2560:3",
+		"1920:2",
+		"1280:1"
+	]
 }
 ```
 
-### Forge/NeoForge
+Config screen is available through **ModMenu**.
+
+### NeoForge
 ```toml
 #GUI Scaler Configuration
 [general]
@@ -77,16 +82,15 @@ gradlew.bat build
 
 Output JARs will be in:
 - `fabric/build/libs/`
-- `forge/build/libs/`
 - `neoforge/build/libs/`
 
 ## Requirements
 
-- Minecraft 1.21.1
+- Minecraft 1.21.11
 - Java 21
-- Fabric Loader 0.16.10+ (Fabric)
-- Forge 52.0.28+ (Forge)
-- NeoForge 21.1.80+ (NeoForge)
+- Fabric Loader 0.18.1+ and Fabric API (Fabric)
+- Cloth Config (Fabric)
+- NeoForge 21.11.38-beta+ (NeoForge)
 
 ## License
 

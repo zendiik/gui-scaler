@@ -18,13 +18,10 @@ public class GUIScaleCalculator {
         if (width >= 2560 || totalPixels > 4_500_000) {
             return 3;
         }
-        // Full HD territory (1920+ width, or 2M+ pixels)
-        else if (width >= 1920 || totalPixels > 2_000_000) {
+        // HD and above (1280+ width, or 2M+ pixels) - scale 1 is unreadable on
+        // 1280x720 / 1600x900; vanilla's own auto would pick 3 here
+        else if (width >= 1280 || totalPixels > 2_000_000) {
             return 2;
-        }
-        // HD territory (1280+ width)
-        else if (width >= 1280) {
-            return 1;
         }
         // Let Minecraft decide
         else {

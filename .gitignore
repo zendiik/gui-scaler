@@ -21,6 +21,8 @@ build
 # other
 eclipse
 CLAUDE.md
+PLANS.md
+.claude/
 
 common/build
 

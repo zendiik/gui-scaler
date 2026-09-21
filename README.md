@@ -13,22 +13,24 @@ Automatically scales Minecraft GUI based on window resolution.
 - **Intelligent scaling** - uses pixel density detection for optimal readability
 - **Multiloader support** - works on Fabric and Forge
 - **Configurable** - choose between AUTO (intelligent) or CUSTOM (user-defined) modes
-- **Real-time** - triggers on every screen open (fullscreen toggle, window resize)
+- **Real-time** - re-applies the scale whenever the window size changes (resize, fullscreen toggle)
 
 ## Scaling Logic
 
 ### AUTO Mode (Default)
 ```
-2880x1800+ (HiDPI/Retina) → GUI scale 3
-1920x1080+ (Full HD)      → GUI scale 2
-1280x720+  (HD)           → GUI scale 1
-Otherwise                 → GUI scale 0 (auto)
+2560+ wide, or over 4.5M pixels → GUI scale 3
+1280+ wide, or over 2M pixels   → GUI scale 2
+Otherwise                       → GUI scale 0 (let Minecraft decide)
 ```
 
-Uses combined width and pixel count for accurate detection.
+Uses combined width and pixel count for accurate detection. Widths are measured in
+framebuffer pixels, so on a HiDPI/Retina display a window that looks like 1280x720
+reports 2560x1440 and gets scale 3.
 
 ### CUSTOM Mode
-Define your own scaling rules in the config file.
+Define your own scaling rules in the config file. Rules match as "width >= threshold";
+the highest matching rule wins. If no rule matches, Minecraft decides (scale 0).
 
 ## Installation
 
@@ -40,6 +42,21 @@ Define your own scaling rules in the config file.
 
 ### Fabric (Cloth Config)
 Config file: `config/guiscaler.json`
+
+```json
+{
+	"enableAutoScale": true,
+	"mode": "AUTO",
+	"customRules": {
+		"rule1Width": 2560,
+		"rule1Scale": 3,
+		"rule2Width": 1920,
+		"rule2Scale": 2,
+		"rule3Width": 1280,
+		"rule3Scale": 1
+	}
+}
+```
 
 Config screen available via **ModMenu** → GUI Scaler → Config button.
 
